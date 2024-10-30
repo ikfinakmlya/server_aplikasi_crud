@@ -1,0 +1,37 @@
+<div class="container mt-3">
+    <div class="row">
+    <div class="col-md-6">
+    <h2>Form Edit data Contact</h2>
+    <% if (typeof errors !='undefined'){ %>
+    <div class="alert alert-danger" role="alert">
+    <ul>
+    <% errors.forEach(error=>{ %>
+    <li><%=
+    error.msg %></li>
+    <% }) %>
+    </ul>
+    </div>
+    <% } %>
+    <form method="POST" action="/contact/update">
+    <input type="hidden" name="nama_lama" value="<%=
+    (contact.nama_lama)?contact.nama_lama:contact.nama %>">
+    <div class="mb-3">
+    <label for="inpNama" class="form-label">Nama Contact</label>
+    <input type="text" class="form-control" id="inpNama" name="nama"
+    value="<%= contact.nama %>">
+    </div>
+    <div class="mb-3">
+    <label for="inpNoHp" class="form-label">Nomor HP</label>
+    <input type="text" class="form-control" id="inpNoHp" name="nohp"
+    value="<%= contact.nohp %>">
+    </div>
+    <div class="mb-3">
+    <label for="inpEmail" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="inpEmail"
+    name="email" value="<%= contact.email %>">
+    </div>
+    <button type="submit" class="btn btn-primary">Edit Data</button>
+    </form>
+    </div>
+    </div>
+    </div>
